@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>WoolStone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:#f2f2f2;}
+
+/* ===== HEADER ===== */
+.header{
+        background:#fff;
+        padding:10px 50px;
+        border-bottom:1px solid #ddd;
+        position:sticky;
+        top:0;
+        z-index:100;
+}
+.header-top{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:15px;
+}
+.logo{
+        font-size:30px;
+        font-weight:bold;
+}
+.logo span{color:#e53935;}
+.phone{
+        background:#e53935;
+        color:#fff;
+        padding:12px 22px;
+        border-radius:4px;
+        font-weight:bold;
+}
+.menu{
+        display:flex;
+        gap:25px;
+        flex-wrap:wrap;
+}
+.menu a{
+        text-decoration:none;
+        color:#333;
+        font-weight:500;
+        position:relative;
+}
+.menu a::after{
+        content:"";
+        position:absolute;
+        width:0;
+        height:2px;
+        background:#e53935;
+        left:0;
+        bottom:-6px;
+        transition:0.3s;
+}
+.menu a:hover::after{width:100%;}
+
+/* ===== HERO ===== */
+.hero{
+        height:540px;
+        background:
+            linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url("https://images.unsplash.com/photo-1503387762-592deb58ef4e");
+        background-size:cover;
+        background-position:center;
+        color:#fff;
+        display:flex;
+        align-items:center;
+}
+.hero-text{
+        margin-left:60px;
+        max-width:650px;
+}
+.hero h1{
+        font-size:50px;
+        margin-bottom:20px;
+}
+.hero p{
+        font-size:18px;
+        line-height:1.6;
+        margin-bottom:30px;
+}
+.hero button{
+        background:#1e40af;
+        border:none;
+        padding:16px 36px;
+        color:#fff;
+        font-size:16px;
+        cursor:pointer;
+        transition:0.3s;
+}
+.hero button:hover{
+        background:#2563eb;
+        transform:scale(1.06);
+        box-shadow:0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+        padding:70px 40px;
+        background:#fff;
+        text-align:center;
+}
+.products h2{
+        font-size:34px;
+        margin-bottom:40px;
+}
+.product-img img{
+        width:340px;
+        box-shadow:0 12px 35px rgba(0,0,0,0.35);
+}
+
+/* ===== LOCATION ===== */
+.location{
+        padding:70px 40px;
+        background:#f5f5f5;
+        text-align:center;
+}
+.location h2{
+        font-size:34px;
+        margin-bottom:15px;
+}
+.location p{
+        font-size:18px;
+        margin-bottom:20px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+        background:#111;
+        color:#fff;
+        padding:35px;
+        text-align:center;
+}
+
+/* ===== MODAL ===== */
+.modal{
+        display:none;
+        position:fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background:rgba(0,0,0,0.7);
+        backdrop-filter:blur(6px);
+        justify-content:center;
+        align-items:center;
+        z-index:200;
+}
+.modal-content{
+        background:#fff;
+        padding:20px;
+        border-radius:8px;
+        position:relative;
+        max-width:90%;
+}
+.modal-content img{
+        max-width:100%;
+        border-radius:6px;
+}
+.close{
+        position:absolute;
+        top:10px;
+        right:15px;
+        font-size:22px;
+        cursor:pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+        .hero-text{margin:20px;}
+.hero h1{font-size:36px;}
+    .menu{gap:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-top">
+        <div class="logo"><span>Wool</span>Stone</div>
+        <div class="phone">(99) 865-6111</div>
+    </div>
+    <div class="menu">
+        <a href="#top">Главная</a>
+        <a onclick="scrollToProducts()">Наши продукты</a>
+        <a href="#">Фасадные панели</a>
+        <a href="#">Теплоизоляция</a>
+        <a href="#">Проекты</a>
+        <a href="#">Сертификаты</a>
+        <a href="#">Партнерам</a>
+        <a href="#">Контакты</a>
+    </div>
+</div>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Фасадные<br>Фибро Панели</h1>
+        <p>
+            Современные фасадные решения для жилых
+            и коммерческих объектов. Надежно.
+            Красиво. Долговечно.
+        </p>
+        <button onclick="openOffer()">КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ</button>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+    <h2>Наши продукты</h2>
+    <div class="product-img">
+        <img src="https://share.google/images/wQA8plbaDdEmc0mt9">
+    </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location">
+    <h2>Наш адрес</h2>
+    <p>📍 г. Ташкент, BOBUR 72–74 B</p>
+    <iframe
+        src="https://maps.google.com/maps?q=BOBUR%2072-74%20B&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="300" style="border:0;" loading="lazy">
+    </iframe>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>📧 info@woolstone.uz</p>
+    <p>📞 +998 77 157 27 27</p>
+    <p>© 2026 WoolStone</p>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">✖</span>
+        <img src="https://i.pinimg.com/originals/6d/d6/b1/6dd6b104d0a9cc18bf6722c137f5e018.jpg">
+    </div>
+</div>
+
+<script>
+function openOffer(){
+    document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+function scrollToProducts(){
+    document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
